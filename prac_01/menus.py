@@ -8,6 +8,7 @@ choice = input(">>> ")
 # Repeat until valid choice is entered
 while choice != "Q":
     if choice == "H":
+
         print(f"Hello {name}")
     elif choice == "G":
         print(f"Goodbye {name}")
