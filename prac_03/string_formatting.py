@@ -38,7 +38,7 @@ print(f"{year} {name} for about $ {cost.__ceil__()}!")
 # TODO: Using a for loop with the range function and f-string formatting,
 # produce the following right-aligned output (DO NOT use a list):
 for i in range(0, 11):
-    print (f"2 ^ {i:>2} is {2**i:>5}")
+    print (f"2 ^{i:>2} is {2**i:>4}")
 # 2 ^ 0 is    1
 # 2 ^ 1 is    2
 # 2 ^ 2 is    4
