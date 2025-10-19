@@ -10,7 +10,10 @@ def main():
             current = 0
         counts[word] = current + 1
 
-    for word, count in counts.items():
-        print(f"{word} : {count}")
-main()
+    sorted_words = sorted(counts.keys())
 
+    for word in sorted_words:
+        count = counts[word]
+        print(f"{word} : {count}")
+
+main()
