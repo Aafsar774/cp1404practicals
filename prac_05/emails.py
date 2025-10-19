@@ -1,8 +1,14 @@
 """
 Emails
-Estimate: 45 minutes
-Actual:
+Estimate: 60 minutes
+Actual:   70 minutes
 """
+
+def extract_name_from_email(email) :
+
+    name_part = email.split("@")[0]
+    name_guess = name_part.replace(".", " ").replace("_", " ").title()
+    return name_guess
 
 def main():
     email_to_name = {}
@@ -11,12 +17,11 @@ def main():
         email = input("Email: ").strip()
         if email == "":
             break
-        name_part = email.split("@")[0]
-        guessed_name = name_part.replace(".", " ").replace("_", " ").title()
 
-        answer = input(f"Is your name {guessed_name}? (Y/n) ").strip().lower()
-        if answer not in ("", "y"):
-            # Ask for the correct name
+        guessed_name = extract_name_from_email(email)
+        response = input(f"Is your name {guessed_name}? (Y/n) ").strip().lower()
+
+        if response not in ("", "y"):
             guessed_name = input("Name: ").strip()
 
         email_to_name[email] = guessed_name
