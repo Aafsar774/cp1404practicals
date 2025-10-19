@@ -14,6 +14,7 @@ def main():
         rows = list(reader)
 
     champion_idx = header.index("Champion")
+    country_idx = header.index("Country")
 
     champion_to_wins = {}
     for row in rows:
@@ -23,8 +24,19 @@ def main():
         else:
             champion_to_wins[champion] = 1
 
+    countries = set()
+    for row in rows:
+        countries.add(row[country_idx])
+
+    # Output champions
     print("Wimbledon Champions:")
     for champion in sorted(champion_to_wins.keys()):
         print(f"{champion} {champion_to_wins[champion]}")
+
+    # Output countries
+    print()
+    sorted_countries = sorted(countries)
+    print(f"These {len(sorted_countries)} countries have won Wimbledon:")
+    print(", ".join(sorted_countries))
 
 main()
