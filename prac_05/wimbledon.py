@@ -23,8 +23,8 @@ def main():
         else:
             champion_to_wins[champion] = 1
 
-    print("Wimbledon Champions :")
-    for champion, wins in champion_to_wins.items():
-        print(f"{champion} {wins}")
+    print("Wimbledon Champions:")
+    for champion in sorted(champion_to_wins.keys()):
+        print(f"{champion} {champion_to_wins[champion]}")
 
 main()
