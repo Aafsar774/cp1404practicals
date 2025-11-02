@@ -6,7 +6,7 @@ class ProgrammingLanguage:
         self.Year = Year
 
     def is_dynamic(self):
-        return self.Typing == self.Typing
+        return self.Typing == "Dynamic"
 
     def __str__(self):
         return f'{self.Language}, {self.Typing} Typing, Reflection = {self.Reflection}, First appeared in  {self.Year}'
