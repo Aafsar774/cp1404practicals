@@ -1,5 +1,3 @@
-from datetime import date
-
 class Project:
 
     def __init__(self, name, start_date, priority, cost_estimate, completion_percentage):
@@ -13,5 +11,5 @@ class Project:
         return self.priority < other.priority
 
     def __str__(self):
-        return (f"{self.name}, start: {self.start_date.strftime('%d/%m/%Y')}, priority {self.priority}, cost estimate: ${self.cost_estimate:.2f}, completion: {self.completion}%")
+        return f"{self.name}, start: {self.start_date.strftime('%d/%m/%Y')}, priority {self.priority}, cost estimate: ${self.cost_estimate:.2f}, completion: {self.completion_percentage}%"
 
