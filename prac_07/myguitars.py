@@ -6,6 +6,9 @@ def main():
     guitars = load_csv(csv_file)
     loaded_guitars(guitars, "Loaded guitars:")
 
+    guitars.sort()
+    loaded_guitars(guitars, "Guitars sorted by year from oldest to newest:")
+
 def load_csv(filename):
     guitars = []
     with open(filename, "r", encoding="utf-8") as guitars_file:
@@ -22,7 +25,7 @@ def loaded_guitars(guitars, title):
     print(title)
     for item in guitars:
         print(item)
-
+    print()
 
 
 main()
