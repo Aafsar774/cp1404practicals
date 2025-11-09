@@ -11,11 +11,12 @@ def main():
     loaded_guitars(guitars, "Guitars sorted by year from oldest to newest:")
 
 
-    new_guitars = add_guitars_from_user()
-    if new_guitars:
-        guitars.extend(new_guitars)
-        guitars.sort()
-        loaded_guitars(guitars, "All guitars including new entries:")
+    new_guitars = get_guitars_from_user()
+    guitars.extend(new_guitars)
+    guitars.sort()
+    loaded_guitars(guitars, "All guitars:")
+    save_new_guitars(csv_file, guitars)
+    print(f"Saved {len(guitars)} guitars to {csv_file}.")
 
 def load_csv(filename):
     guitars = []
@@ -37,7 +38,7 @@ def loaded_guitars(guitars, title):
     print()
 
 
-def add_guitars_from_user():
+def get_guitars_from_user():
     print("Enter new guitars:")
     new_guitars = []
     name = input("Name: ").strip()
@@ -48,5 +49,10 @@ def add_guitars_from_user():
     print(f"{more_guitars} added.\n")
 
     return new_guitars
+
+def save_new_guitars(filename, guitars):
+    with open(filename, "w", encoding="utf-8", newline="") as guitars_file:
+        for guitar in guitars:
+            guitars_file.write(f"{guitar.name},{guitar.year},{guitar.cost}\n")
 
 main()
