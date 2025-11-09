@@ -15,3 +15,6 @@ class Project:
 
     def is_complete(self):
         return self.completion_percentage >= 100
+
+    def project_date(self, other_date):
+        return self.start_date >= other_date

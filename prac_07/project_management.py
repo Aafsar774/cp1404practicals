@@ -3,7 +3,6 @@ from prac_07.project import Project
 
 text_file = "projects.txt"
 
-
 def main():
     print("Welcome to Pythonic Project Management")
 
@@ -22,7 +21,7 @@ def main():
          elif choice == "d":
              display_projects(projects)
          elif choice == "f":
-             print("Filter by date")
+             filter_by_date(projects)
          elif choice == "a":
              print("Add new project")
          elif choice == "u":
@@ -73,5 +72,22 @@ def display_projects(projects):
     print("Completed projects:")
     for project in complete:
         print(" ", project)
+
+def get_start_date(project):
+    return project.start_date
+
+def filter_by_date(projects):
+    date_filter = input("Show projects that start after date (dd/mm/yyyy): ").strip()
+    starts = datetime.strptime(date_filter, "%d/%m/%Y").date()
+
+    filtered = []
+    for project in projects:
+        if project.project_date(starts):
+            filtered.append(project)
+
+    filtered.sort(key=get_start_date)
+
+    for project in filtered:
+        print(project)
 
 main()
