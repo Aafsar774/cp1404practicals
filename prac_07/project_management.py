@@ -6,8 +6,6 @@ text_file = "projects.txt"
 
 def main():
     print("Welcome to Pythonic Project Management")
-    projects = load_projects(text_file)
-    print(f"Loaded {len(projects)} projects from {text_file}")
 
     while True:
 
@@ -17,17 +15,18 @@ def main():
              print("Thank you for using custom-built project management software.")
              break
          elif choice == "l":
-             print("Load projects (not implemented yet)")
+             projects=load_projects(text_file)
+             print(f"Loaded {len(projects)} projects from {text_file}")
          elif choice == "s":
-             print("Save projects (not implemented yet)")
+             print("Save projects")
          elif choice == "d":
-             print("Display projects (not implemented yet)")
+             display_projects(projects)
          elif choice == "f":
-             print("Filter by date (not implemented yet)")
+             print("Filter by date")
          elif choice == "a":
-             print("Add new project (not implemented yet)")
+             print("Add new project")
          elif choice == "u":
-             print("Update project (not implemented yet)")
+             print("Update project")
          else:
              print("Invalid menu choice.")
 
@@ -57,5 +56,22 @@ def print_menu():
     print("- (U)pdate project")
     print("- (Q)uit")
 
+def display_projects(projects):
+    incomplete = []
+    complete = []
+    for item in projects:
+        if item.is_complete():
+            complete.append(item)
+        else:
+            incomplete.append(item)
+    incomplete.sort()
+    complete.sort()
+
+    print("Incomplete projects:")
+    for project in incomplete:
+        print(" ", project)
+    print("Completed projects:")
+    for project in complete:
+        print(" ", project)
 
 main()
