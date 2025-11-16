@@ -13,8 +13,10 @@ BoxLayout:
             size_hint_x: 0.25
             Button:
                 text: 'Up'
+                on_press:app.handle_positive_increment()
             Button:
                 text: 'Down'
+                on_press:app.handle_negative_increment()
     Button:
         text: 'Convert miles to km'
         font_size: 30
