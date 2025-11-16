@@ -6,6 +6,8 @@ BoxLayout:
             id: input_miles
             text: '0'
             font_size: 55
+            on_text_validate: app.handle_update()
+            multiline: False
         BoxLayout:
             orientation: 'vertical'
             size_hint_x: 0.25
@@ -17,6 +19,6 @@ BoxLayout:
         text: 'Convert miles to km'
         font_size: 30
     Label:
-        text: '0.0'
+        text: app.output
         color: (1, 1, 0, 1)
         font_size: 48
