@@ -7,7 +7,7 @@ class UnreliableCar(Car):
         self.reliability = reliability
 
     def __str__(self):
-        return f"{self.name} has fuel: {self.fuel}L reliability {self.reliability}% and drove {self.drive(100)} km"
+        return f"{self.name} has fuel: {self.fuel}L odometer: {self.odometer} reliability {self.reliability}% "
 
     def drive(self, distance):
         random_number = random.randrange(0, 100)
