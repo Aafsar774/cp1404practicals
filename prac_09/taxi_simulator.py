@@ -11,9 +11,9 @@ def main():
     choice = input(f"{MENU}\n>>> ").lower()
     while choice != "q":
         if choice == "c":
-            display_taxis(taxis)
+            choose_taxi(taxis)
         elif choice == "d":
-            print("Drive")
+            print("You need to choose a taxi before you can drive")
         else:
             print("Invalid option")
 
@@ -30,6 +30,22 @@ def display_taxis(taxis):
     for taxi in taxis:
         print(f"{taxis_available} - {taxi}")
         taxis_available += 1
+
+def choose_taxi(taxis):
+    display_taxis(taxis)
+    try:
+        taxi_choice = int(input("Choose taxi: "))
+        if 0 <= taxi_choice < len(taxis):
+            taxi = taxis[taxi_choice]
+            taxi.start_fare()
+            return taxi
+    except ValueError:
+        print("Invalid taxi choice")
+        return None
+
+    print("Invalid taxi choice")
+    return None
+
 
 if __name__ == "__main__":
     main()
